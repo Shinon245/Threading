@@ -1,21 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package threading;
 
-/**
- *
- * @author Cameron
- */
+
+class Serve implements Runnable {
+   private String customer;
+   private Thread C;
+   
+   Serve( String name) {
+      customer = name;
+      System.out.println("Serving " +  customer );
+   }
+   
+   public void run() {
+        
+   }
+   
+   public void start () {
+      System.out.println("Served " +  customer );
+      if (C == null) {
+         C = new Thread (this, customer);
+         C.start ();
+      }
+   }
+}
+
 public class Threading {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+   public static void main(String args[]) {
+      Serve C1 = new Serve("Jane");
+      C1.start();
+      
+      Serve C2 = new Serve("Bob");
+      C2.start();
+   }   
 }
