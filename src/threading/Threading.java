@@ -11,7 +11,17 @@ class Serve implements Runnable {
    }
    
    public void run() {
-        
+      System.out.println(customer + " is drinking" );
+      try {
+         for(int i = 0; i < 6; i++) {
+            System.out.println(customer + " drunk level is: " + (i*2));
+            // Let the thread sleep for a while.
+            Thread.sleep(300);
+         }
+      }catch (InterruptedException e) {
+         System.out.println("Thread " +  customer + " interrupted.");
+   }
+      System.out.println(customer + " kicked out.");
    }
    
    public void start () {
